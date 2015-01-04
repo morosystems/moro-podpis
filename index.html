@@ -4,24 +4,126 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>MoroPodpis</title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css" rel="stylesheet">
+        .radek {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="panel panel-default" style="margin: 10px">
-    <div class="page-header">
-        <h1>Example page header <small>Subtext for header</small></h1>
+<div style="margin: 10px">
+
+    <div style="width: 300px; float: left;" class="panel panel-default">
+        <div class="panel-body">
+            <input type="text" class="form-control radek inputElem" id="name" placeholder="Jméno">
+            <input type="text" class="form-control radek inputElem" id="pos" placeholder="Pozice">
+
+            <div class="input-group radek">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                            aria-expanded="false" id="predvolba"><span class="val">+420</span> <span
+                            class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="vyber"><a href="#">+420</a></li>
+                        <li class="vyber"><a href="#">+421</a></li>
+                    </ul>
+                </div>
+                <!-- /btn-group -->
+                <input type="text" class="form-control inputElem" placeholder="Telefon" id="tel">
+            </div>
+            <div class="input-group radek">
+                <input type="text" class="form-control inputElem" placeholder="Email" id="email">
+                <span class="input-group-addon">@morosystems.cz</span>
+            </div>
+            <input type="text" class="form-control radek inputElem" placeholder="Skype" id="skype">
+
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary signType active">
+                    <input type="radio" autocomplete="off" checked> Thunderbird
+                </label>
+                <label class="btn btn-primary signType">
+                    <input type="radio" autocomplete="off"> Outlook
+                </label>
+                <label class="btn btn-primary signType">
+                    <input type="radio" autocomplete="off"> Web
+                </label>
+            </div>
+        </div>
     </div>
-    <div class="panel-body">
-        Basic panel example
+    <div style="width: 600px; float: left; margin-left: 10px;" class="panel panel-default">
+        <div class="panel-body">
+            <div id="source"></div>
+            <hr/>
+            <div id="signature"></div>
+        </div>
     </div>
 </div>
 
 
 <script src="jquery/jquery-1.11.2.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+    var server = "http://podpis.arcanis.cz/";
+
+    function refreshSignature() {
+        var name = $("#name").val();
+        var pos = $("#pos").val();
+        var predvolba = $("#predvolba .val").html();
+        var tel = $("#tel").val();
+        var email = $("#email").val();
+        var skype = $("#skype").val();
+        var type = $(".signType.active").contents()[2].textContent.trim();
+
+        console.log(name, pos, predvolba, tel, email, skype, type);
+
+        var source =
+                '<div style="color:black;font-family:Arial;font-size:10pt;">' +
+                (type === "Outlook" || type === "Thunderbird" ? '<span style="color: #E6AE23;">____</span><br /><br />' : '') +
+                '   <b style="text-transform: uppercase;">' + name + '</b>, ' + pos + '' +
+                '   <br />' +
+                (tel ? ('<b>Tel</b>: ' + predvolba + ' ' + tel + ', ') : '') +
+                '   <b>E-mail</b>: <a style="color: #E6AE23 !important;" href="mailto:' + email + '@morosystems.cz"><b>' + email + '@morosystems.cz</b></a>' +
+                (skype ? (', <b>Skype</b>: ' + skype + '') : '') +
+                '   <br />' +
+                '   <br />' +
+                '   <img src="'+(location.href.replace("#",""))+'morosystems_email.png" /><br />' +
+                '   <br />' +
+                '   MoroSystems, s.r.o., Šumavská 33a, 602 00 Brno <br />' +
+                '   <a style="color: #e6ae23 !important;" href = "http://morosystems.cz"><b>http://morosystems.cz</b></a> | ' +
+                '   <a style="color: #E6AE23 !important;" href = "http://vsadnajira.cz"><b>http://vsadnajira.cz</b></a><br /> ' +
+                '   <br />' +
+                '   Jsme Atlassian Experti!<br />' +
+                '   <p>&nbsp;</p>' +
+                '</div>';
+
+        $("#signature").html(source);
+        $("#source").text(source);
+    }
+
+
+    $(document).ready(function () {
+        $(".inputElem").on("change", function () {
+            setTimeout(refreshSignature, 0);
+        })
+
+        $(".signType").on("click", function () {
+            setTimeout(refreshSignature, 0);
+        })
+
+
+        $(".vyber").click("change", function () {
+            $("#predvolba .val").html($(this).find("a").html());
+            refreshSignature();
+        })
+
+        refreshSignature();
+    })
+</script>
 </body>
 </html>
