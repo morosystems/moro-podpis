@@ -18,7 +18,7 @@
 
 <div style="margin: 10px">
 
-    <div style="width: 350px; float: left;" class="panel panel-default">
+    <div style="width: 400px; float: left;" class="panel panel-default">
         <div class="panel-body">
             <input type="text" class="form-control radek inputElem" id="name" placeholder="Jméno">
             <input type="text" class="form-control radek inputElem" id="pos" placeholder="Pozice">
@@ -66,10 +66,13 @@
                 <label class="btn btn-primary locationType">
                     <input type="radio" autocomplete="off"> Hradec
                 </label>
+                <label class="btn btn-primary locationType">
+                    <input type="radio" autocomplete="off"> Popůvky
+                </label>
             </div>
         </div>
     </div>
-    <div style="width: 600px; float: left; margin-left: 10px;" class="panel panel-default">
+    <div style="width: 550px; float: left; margin-left: 10px;" class="panel panel-default">
         <div class="panel-body">
             <textarea id="source" style="width: 100%; height: 150px;"></textarea>
             <div id="signature"></div>
@@ -92,6 +95,8 @@
             return 'MoroSystems SK, s.r.o., budova Kovoprojektu, Růžová dolina 480/6, 821 08 Bratislava  <br />';
         } else if (lokace === "Hradec") {
             return 'MoroSystems, s.r.o., Průmyslová 1200, 500 02 Hradec Králové <br />';
+        }else if (lokace === "Popůvky") {
+            return 'MoroSystems, s.r.o., Nová 147/14, 664 41 Popůvky <br />';
         }
         return "co tu?";
     }
@@ -115,13 +120,13 @@
         console.log(name, pos, predvolba, tel, email, skype,  lokace, obrazek);
 
         var source =
-                '<div style="color:black;font-family:Arial;font-size:10pt;">' +
+                '<div style="font-family:Arial;font-size:10pt;">' +
 //                (type === "Outlook" || type === "Thunderbird" ? '<span style="color: #E6AE23;">____</span><br /><br />' : '') +
-                '<span style="color: #E6AE23;">____</span><br /><br />' +
+                '   <span style="color: #FDBE25;">____</span><br /><br />' +
                 '   <b style="text-transform: uppercase;">' + name + '</b>, ' + pos + '' +
                 '   <br />' +
                 (tel ? ('<b>Tel</b>: ' + predvolba + ' ' + tel + ', ') : '') +
-                '   <b>E-mail</b>: <a style="color: #E6AE23 !important;" href="mailto:' + email + '@morosystems.cz"><b>' + email + '@morosystems.cz</b></a>' +
+                '   <b>E-mail</b>: <span style="color:#FDBE25;"><a style="color: #FDBE25; text-decoration:underline;" href="mailto:' + email + '@morosystems.cz"><span style="color: #FDBE25">' + email + '@morosystems.cz</span></a></span>' +
                 (skype ? (', <b>Skype</b>: ' + skype + '') : '') +
                 '   <br />' +
                 '   <br />' +
@@ -129,8 +134,8 @@
                 '   <br />' +
                 '   <br />' +
                 getAddress(lokace) +
-                '   <a style="color: #e6ae23 !important;" href = "http://morosystems.cz"><b>http://morosystems.cz</b></a> | ' +
-                '   <a style="color: #E6AE23 !important;" href = "http://vsadnajira.cz"><b>http://vsadnajira.cz</b></a><br /> ' +
+                '   <span style="color:#FDBE25;"><a style="color: #FDBE25; text-decoration:underline;" href = "http://morosystems.cz"><span style="color: #FDBE25;">http://.morosystems.cz</span></a></span> | ' +
+                '   <span style="color:#FDBE25;"><a style="color: #FDBE25; text-decoration:underline;" href = "http://vsadnajira.cz"><span style="color: #FDBE25;">http://vsadnajira.cz</span></a></span><br /> ' +
                 '   <br />' +
                 '   Jsme Atlassian Experti!<br />' +
                 '   <p>&nbsp;</p>' +
@@ -139,6 +144,10 @@
         $("#signature").html(source);
         $("#source").val(source);
     }
+
+
+//            <a href="#" style="color:#FF0000; text-decoration:underline;"><span style="color:#FF0000;">111Example of styled linktext.</span></a>
+
 
 
     $(document).ready(function () {
