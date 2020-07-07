@@ -6,7 +6,7 @@ function getAddress(lokace) {
     } else if (lokace === "Bratislava") {
         return 'MoroSystems, Hraničná 18, 821 05 Bratislava  <br />';
     } else if (lokace === "Hradec") {
-        return 'MoroSystems, Průmyslová 1200, 500 02 Hradec Králové <br />';
+        return 'MoroSystems,  Vančurovo náměstí 1293/9B, 500 02 Hradec Králové <br />';
         // } else if (lokace === "Popůvky") {
         //     return 'MoroSystems, Nová 147/14, 664 41 Popůvky <br />';
     } else if (lokace === "Francouzská") {
@@ -56,8 +56,8 @@ function refreshSignature() {
         ((type === "Ostatní") ? '<br />' :  '') +
         ((type === "Ostatní") ? '<br />' :  '') +
         getAddress(lokace) +
-        '   <span style="color:#FDBE25;"><a style="color: #FDBE25 !important; text-decoration:underline;" href = "http://morosystems.cz"><span style="color: #FDBE25;">http://morosystems.cz</span></a></span> | ' +
-        '   <span style="color:#FDBE25;"><a style="color: #FDBE25 !important; text-decoration:underline;" href = "http://vsadnajira.cz"><span style="color: #FDBE25;">http://vsadnajira.cz</span></a></span><br /> ' +
+        '   <span style="color:#FDBE25;"><a style="color: #FDBE25 !important; text-decoration:underline;" href = "https://morosystems.cz"><span style="color: #FDBE25;">https://morosystems.cz</span></a></span> | ' +
+        '   <span style="color:#FDBE25;"><a style="color: #FDBE25 !important; text-decoration:underline;" href = "https://vsadnajira.cz"><span style="color: #FDBE25;">https://vsadnajira.cz</span></a></span><br /> ' +
         '   <br />' +
         '   Jsme Atlassian Experti!<br />' +
         '   <p>&nbsp;</p>' +
