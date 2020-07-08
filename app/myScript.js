@@ -163,6 +163,7 @@ function init() {
 
     setTimeout(refreshSignature, 0);
 
+    $("#version").html(document.lastModified);
     $("#mainDiv").show();
 }
 //})
