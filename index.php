@@ -9,7 +9,7 @@
     <script src="preloader/lib/ngprogress.js"></script>
     <script src="preloadConfig.js"></script>
 
-    <title>MoroPodpis v1.2</title>
+    <title>MoroPodpis v1.2.1</title>
     <style type="text/css" rel="stylesheet">
         .radek {
             margin-bottom: 10px;
