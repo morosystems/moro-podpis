@@ -2,7 +2,7 @@ function getAddress(lokace) {
     if (lokace === "Brno") {
         return 'MoroSystems, Smetanova 1022/19, 602 00 Brno <br />';
     } else if (lokace === "Praha") {
-        return 'MoroSystems, Thámova 166/18, 186 00 Praha 8 - Karlín <br />';
+        return 'MoroSystems, Thámova 166/18a, 186 00 Praha 8 - Karlín <br />';
     } else if (lokace === "Bratislava") {
         return 'MoroSystems, Hraničná 18, 821 05 Bratislava  <br />';
     } else if (lokace === "Hradec") {
@@ -69,7 +69,7 @@ function refreshSignature() {
 
 
 function saveToLocalStorage(name, pos, predvolba, tel, email, skype, lokace, type) {
-    console.log("saveToLocalStorage", supports_html5_storage() ? true : false, name, pos, predvolba, tel, email, skype, lokace, type);
+    // console.log("saveToLocalStorage", supports_html5_storage() ? true : false, name, pos, predvolba, tel, email, skype, lokace, type);
     if (supports_html5_storage()) {
         localStorage.setItem("tempData", JSON.stringify({
             name: name,
@@ -82,7 +82,6 @@ function saveToLocalStorage(name, pos, predvolba, tel, email, skype, lokace, typ
             type: type
         }));
     }
-
 }
 
 function loadFromLocalStorage(){
