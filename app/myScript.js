@@ -57,7 +57,7 @@ function refreshSignature() {
         ((type === "Ostatní") ? '<br />' :  '') +
         getAddress(lokace) +
         '   <span style="color:#FDBE25;"><a style="color: #FDBE25 !important; text-decoration:underline;" href = "https://morosystems.cz"><span style="color: #FDBE25;">https://morosystems.cz</span></a></span> | ' +
-        '   <span style="color:#FDBE25;"><a style="color: #FDBE25 !important; text-decoration:underline;" href = "https://vsadnajira.cz"><span style="color: #FDBE25;">https://vsadnajira.cz</span></a></span><br /> ' +
+        '   <span style="color:#FDBE25;"><a style="color: #FDBE25 !important; text-decoration:underline;" href = "https://protymy.morosystems.cz"><span style="color: #FDBE25;">https://protymy.morosystems.cz</span></a></span><br /> ' +
         '   <br />' +
         '   Jsme Atlassian Experti!<br />' +
         '   <p>&nbsp;</p>' +
