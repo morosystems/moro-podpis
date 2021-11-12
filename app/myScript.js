@@ -1,24 +1,6 @@
-function getAddress(lokace) {
-    if (lokace === "Brno") {
-        return 'MoroSystems, Smetanova 1022/19, 602 00 Brno <br />';
-    } else if (lokace === "Praha") {
-        return 'MoroSystems, Thámova 166/18a, 186 00 Praha 8 - Karlín <br />';
-    } else if (lokace === "Bratislava") {
-        return 'MoroSystems, Hraničná 18, 821 05 Bratislava  <br />';
-    } else if (lokace === "Hradec") {
-        return 'MoroSystems,  Vančurovo náměstí 1293/9B, 500 02 Hradec Králové <br />';
-        // } else if (lokace === "Popůvky") {
-        //     return 'MoroSystems, Nová 147/14, 664 41 Popůvky <br />';
-    } else if (lokace === "Francouzská") {
-        return 'MoroSystems, Francouzská 421/87, 602 00 Brno <br />';
-    }
-    return "co tu?";
-}
-
 function addSpacesAfterEachThirdCharacter(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
-
 
 function getObrazek(type) {
 
@@ -44,15 +26,9 @@ function refreshSignature() {
     var tel = $("#tel").val();
     var email = $("#email").val();
     var skype = $("#skype").val();
-    var lokace = $(".locationType.active").contents()[2].textContent.trim();
     var type = $(".signType.active").contents()[2].textContent.trim();
-//        var obrazek = $("#obrazek").val();
 
-//        console.log(name, pos, predvolba, tel, email, skype,  lokace);
-    saveToLocalStorage(name, pos, predvolba, tel, email, skype, lokace, type);
-
-
-
+    saveToLocalStorage(name, pos, predvolba, tel, email, skype, type);
 
     var source =
         '<div style="font-family: Arial;font-size:16px;line-height: 1.8em;color: #424242;letter-spacing: 0.3px;">' +
@@ -82,7 +58,7 @@ function refreshSignature() {
 }
 
 
-function saveToLocalStorage(name, pos, predvolba, tel, email, skype, lokace, type) {
+function saveToLocalStorage(name, pos, predvolba, tel, email, skype, type) {
     // console.log("saveToLocalStorage", supports_html5_storage() ? true : false, name, pos, predvolba, tel, email, skype, lokace, type);
     if (supports_html5_storage()) {
         localStorage.setItem("tempData", JSON.stringify({
@@ -92,7 +68,6 @@ function saveToLocalStorage(name, pos, predvolba, tel, email, skype, lokace, typ
             tel: tel,
             email: email,
             skype: skype,
-            lokace: lokace,
             type: type
         }));
     }
@@ -109,23 +84,6 @@ function loadFromLocalStorage(){
             $("#email").val(data.email);
             $("#skype").val(data.skype);
             $("#predvolba .val").html(data.predvolba);
-
-            if(data.lokace){
-                $(".locationType").removeClass("active");
-                if(data.lokace === "Brno"){
-                    $(".locationType:nth-child(1)").addClass("active");
-                }else if(data.lokace === "Praha"){
-                    $(".locationType:nth-child(2)").addClass("active");
-                }else if(data.lokace === "Bratislava"){
-                    $(".locationType:nth-child(3)").addClass("active");
-                }else if(data.lokace === "Hradec"){
-                    $(".locationType:nth-child(4)").addClass("active");
-                    // }else if(data.lokace === "Popůvky"){
-                    //     $(".locationType:nth-child(5)").addClass("active");
-                } else if (data.lokace === "Francouzská") {
-                    $(".locationType:nth-child(5)").addClass("active");
-                }
-            }
 
             if(data.type){
                 $(".signType").removeClass("active");
