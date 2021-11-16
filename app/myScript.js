@@ -45,8 +45,8 @@ function refreshSignature() {
       ' <a href="https://blog.morosystems.cz/2021-11/zivot-v-morosystems/v-morosystems-slavime-15-let-zacinali-jsme-jako-parta-kamaradu-dnes-je-nas-130/?utm_source=signature&utm_medium=email&utm_campaign=moro15">' +
         getObrazek(type) +
          '</a>' +
-        ((type === "Ostatní") ? '<br />' :  '') +
-        ((type === "Ostatní") ? '<br />' :  '') +
+        '<br />' +
+        '<br />' +
         '<span style="margin-right: 4px; line-height: 26px; vertical-align: text-top; color: #787878;">Sledujte nás</span> ' +
         getLinkedInLink() +
         '<span style="margin-left: 5px"></span>' +
