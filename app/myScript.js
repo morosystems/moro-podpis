@@ -2,19 +2,19 @@ function addSpacesAfterEachThirdCharacter(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
-function getObrazek(type) {
-        return '<img src="https://i.ibb.co/7k9KMMm/Signature-minifided.gif" alt="Slavíme 15 let" />';
+function getAnimatedGif() {
+        return '<img src="https://www.morosystems.cz/email/Signature_minifided.gif" alt="Slavíme 15 let" />';
 }
 
 function getFacebookLink() {
     return '<a href="https://www.facebook.com/MoroSystems">' +
-      '<img src="https://i.ibb.co/k4j77jK/facebook-icon.png" alt="Facebook" width="24px" />' +
+      '<img src="https://www.morosystems.cz/email/facebook-icon.png" alt="Facebook" width="24px" />' +
       '</a>'
 }
 
 function getLinkedInLink() {
     return '<a href="https://www.linkedin.com/company/morosystems">' +
-      '<img src="https://i.ibb.co/M1YD0Wv/linkedin-icon.png" alt="LinkedIn" width="24px" />' +
+      '<img src="https://www.morosystems.cz/email/linkedin-icon.png" alt="LinkedIn" width="24px" />' +
       '</a>'
 }
 
@@ -43,7 +43,7 @@ function refreshSignature() {
       '   <span style="color:#424242;"><a style="color: #424242 !important; text-decoration:underline;font-weight: 800;" href="https://www.morosystems.cz"><span style="color: #424242;">www.morosystems.cz</span></a></span>' +
       '<div style="margin-top: 10px"></div>' +
       ' <a href="https://blog.morosystems.cz/2021-11/zivot-v-morosystems/v-morosystems-slavime-15-let-zacinali-jsme-jako-parta-kamaradu-dnes-je-nas-130/?utm_source=signature&utm_medium=email&utm_campaign=moro15">' +
-        getObrazek(type) +
+        getAnimatedGif() +
          '</a>' +
         '<br />' +
         '<br />' +
