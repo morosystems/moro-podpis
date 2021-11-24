@@ -34,13 +34,13 @@ function refreshSignature() {
       '   <br />' +
         '   <b style="font-weight: 600">' + name + '</b><br /> ' + pos + '' +
         '   <br />' +
-      '<div style="margin-top: 5px"></div>' +
-        '   <span style="color:#424242;"><a style="color: #424242 !important; text-decoration:underline;" href="mailto:' + email + '@morosystems.cz"><span style="color: #424242">' + email + '@morosystems.cz</span></a></span>' +
+      '<div style="margin-top: 5px;color:#424242;"></div>' +
+        '   <a style="color: #424242 !important; text-decoration:underline;" href="mailto:' + email + '@morosystems.cz"><span style="color: #424242">' + email + '@morosystems.cz</span></a>' +
         '   <br />' +
         (tel ? (predvolba + ' ' + addSpacesAfterEachThirdCharacter(tel)) : '') +
         (skype ? (', <b>Skype</b>: ' + skype + '') : '') +
       '<div style="margin-top: 10px"></div>' +
-      '   <span style="color:#424242;"><a style="color: #424242 !important; text-decoration:underline;font-weight: 800;" href="https://www.morosystems.cz"><span style="color: #424242;">www.morosystems.cz</span></a></span>' +
+      '   <div style="color:#424242;"><a style="color: #424242 !important; text-decoration:underline;font-weight: 800;" href="https://www.morosystems.cz"><span style="color: #424242;">www.morosystems.cz</span></a></div>' +
       '<div style="margin-top: 10px"></div>' +
       ' <a href="https://blog.morosystems.cz/2021-11/zivot-v-morosystems/v-morosystems-slavime-15-let-zacinali-jsme-jako-parta-kamaradu-dnes-je-nas-130/?utm_source=signature&utm_medium=email&utm_campaign=moro15">' +
         getAnimatedGif() +
