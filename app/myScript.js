@@ -39,15 +39,15 @@ function refreshSignature() {
         '   <br />' +
         (tel ? (predvolba + ' ' + addSpacesAfterEachThirdCharacter(tel)) : '') +
         (skype ? (', <b>Skype</b>: ' + skype + '') : '') +
-      '<div style="margin-top: 10px"></div>' +
+      '<br />' +
       '   <div style="color:#424242;"><a style="color: #424242 !important; text-decoration:underline;font-weight: 800;" href="https://www.morosystems.cz"><span style="color: #424242;">www.morosystems.cz</span></a></div>' +
-      '<div style="margin-top: 10px"></div>' +
+      '<br />' +
       ' <a href="https://blog.morosystems.cz/2021-11/zivot-v-morosystems/v-morosystems-slavime-15-let-zacinali-jsme-jako-parta-kamaradu-dnes-je-nas-130/?utm_source=signature&utm_medium=email&utm_campaign=moro15">' +
         getAnimatedGif() +
          '</a>' +
         '<br />' +
         '<br />' +
-        '<span style="margin-right: 4px; line-height: 26px; vertical-align: text-top; color: #787878;">Sledujte nás</span> ' +
+        '<span style="margin-right: 4px; line-height: 24px; vertical-align: text-top; color: #787878;">Sledujte nás</span> ' +
         getLinkedInLink() +
         '<span style="margin-left: 5px"></span>' +
         getFacebookLink() +
