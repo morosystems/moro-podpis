@@ -2,19 +2,20 @@ function addSpacesAfterEachThirdCharacter(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
-function getAnimatedGif() {
-        return '<img src="https://www.morosystems.cz/email/Signature_minifided.gif" alt="Slavíme 15 let" />';
+
+function getMoroSystemsLogo() {
+    return '<img src="https://www.morosystems.cz/email/morosystems-logo-email-signature.png" alt="Morosystems logo" />';
 }
 
 function getFacebookLink() {
     return '<a href="https://www.facebook.com/MoroSystems">' +
-      '<img src="https://www.morosystems.cz/email/facebook-icon.png" alt="Facebook" width="24px" />' +
+      '<img src="https://www.morosystems.cz/email/facebook-logo-dark.png" alt="Facebook" width="24px" />' +
       '</a>'
 }
 
 function getLinkedInLink() {
     return '<a href="https://www.linkedin.com/company/morosystems">' +
-      '<img src="https://www.morosystems.cz/email/linkedin-icon.png" alt="LinkedIn" width="24px" />' +
+      '<img src="https://www.morosystems.cz/email/linkedin-logo-dark.png" alt="LinkedIn" width="24px" />' +
       '</a>'
 }
 
@@ -34,23 +35,23 @@ function refreshSignature() {
       '   <br />' +
         '   <b style="font-weight: 600">' + name + '</b><br /> ' + pos + '' +
         '   <br />' +
-      '<div style="margin-top: 5px;color:#424242;"></div>' +
-        '   <a style="color: #424242 !important; text-decoration:underline;" href="mailto:' + email + '@morosystems.cz"><span style="color: #424242">' + email + '@morosystems.cz</span></a>' +
+        '   <br />' +
+      '<div style="margin-top: 0px;color:#424242;"></div>' +
+        '   <a style="text-decoration:none;color: #424242 !important;" href="mailto:' + email + '@morosystems.cz"><span style="color: #424242">' + email + '@morosystems.cz</span></a>' +
         '   <br />' +
         (tel ? (predvolba + ' ' + addSpacesAfterEachThirdCharacter(tel)) : '') +
         (skype ? (', <b>Skype</b>: ' + skype + '') : '') +
       '<br />' +
-      '   <div style="color:#424242;"><a style="color: #424242 !important; text-decoration:underline;font-weight: 800;" href="https://www.morosystems.cz"><span style="color: #424242;">www.morosystems.cz</span></a></div>' +
-      '<br />' +
-      ' <a href="https://blog.morosystems.cz/2021-11/zivot-v-morosystems/v-morosystems-slavime-15-let-zacinali-jsme-jako-parta-kamaradu-dnes-je-nas-130/?utm_source=signature&utm_medium=email&utm_campaign=moro15">' +
-        getAnimatedGif() +
-         '</a>' +
+      '   <div style="margin-top: 10px;color:#424242;"><a style="color: #424242 !important;font-weight: 800;" href="https://www.morosystems.cz"><span style="color: #424242;">www.morosystems.cz</span></a></div>' +
         '<br />' +
-        '<br />' +
-        '<span style="margin-right: 4px; line-height: 24px; vertical-align: text-top; color: #787878;">Sledujte nás</span> ' +
-        getLinkedInLink() +
-        '<span style="margin-left: 5px"></span>' +
         getFacebookLink() +
+        '<span style="margin-left: 5px"></span>' +
+        getLinkedInLink() +
+        '<br />' +
+        '<br />' +
+      ' <a style="text-decoration:none;" href="https://www.morosystems.cz/">' +
+        getMoroSystemsLogo() +
+         '</a>' +
         '</div>';
 
     $("#signature").html(source);
