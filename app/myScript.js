@@ -4,7 +4,7 @@ function addSpacesAfterEachThirdCharacter(x) {
 
 
 function getMoroSystemsLogo() {
-    return '<img src="https://www.morosystems.cz/email/morosystems-logo-email-signature.png" alt="Morosystems logo" />';
+    return '<img src="https://www.morosystems.cz/email/morosystems-logo-email-signature-1.png" alt="morosystems-logo-with-claim" width="238" alt="Morosystems logo" />';
 }
 
 function getFacebookLink() {
