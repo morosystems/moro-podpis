@@ -2,19 +2,26 @@ function addSpacesAfterEachThirdCharacter(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
-
-function getMoroSystemsLogo() {
-    return '<img src="https://www.morosystems.cz/email/morosystems-logo-email-signature-1.png" alt="morosystems-logo-with-claim" width="238" alt="Morosystems logo" />';
+function getLogo(isOrchestra = false) {
+    return isOrchestra
+        ? '<a style="text-decoration:none;" href="https://www.morosystems.cz/"><img src="https://i.ibb.co/XDqf2ch/Orchestra-logo-grad-h-color.png" width="238" alt="Orchestra Morosystems" /></a>'
+        : '<a style="text-decoration:none;" href="https://orchestra.morosystems.cz"><img src="https://www.morosystems.cz/email/morosystems-logo-email-signature-1.png" width="238" alt="Morosystems" /></a>';
 }
 
-function getFacebookLink() {
-    return '<a href="https://www.facebook.com/MoroSystems">' +
+function getWebsite(isOrchestra = false) {
+    return isOrchestra
+        ? '<a style="color: #424242 !important;font-weight: 800;" href="https://orchestra.morosystems.cz"><span style="color: #424242;">orchestra.morosystems.cz</span></a>'
+        : '<a style="color: #424242 !important;font-weight: 800;" href="https://www.morosystems.cz"><span style="color: #424242;">www.morosystems.cz</span></a>';
+}
+
+function getFacebookLink(isOrchestra = false) {
+    return isOrchestra ? "" : ('<a href="https://www.facebook.com/MoroSystems">' +
       '<img src="https://www.morosystems.cz/email/facebook-logo-dark.png" alt="Facebook" width="24px" />' +
-      '</a>'
+      '</a>') ;
 }
 
-function getLinkedInLink() {
-    return '<a href="https://www.linkedin.com/company/morosystems">' +
+function getLinkedInLink(isOrchestra = false) {
+    return (isOrchestra ? '<a href="https://www.linkedin.com/company/morosystems">' : '<a href="https://www.linkedin.com/company/morosystems-orchestra/">') +
       '<img src="https://www.morosystems.cz/email/linkedin-logo-dark.png" alt="LinkedIn" width="24px" />' +
       '</a>'
 }
@@ -27,8 +34,10 @@ function refreshSignature() {
     var email = $("#email").val();
     var skype = $("#skype").val();
     var type = $(".signType.active").contents()[2].textContent.trim();
+    var company = $(".company.active").contents()[2].textContent.trim();
+    let isOrchestra = company === "Orchestra";
 
-    saveToLocalStorage(name, pos, predvolba, tel, email, skype, type);
+    saveToLocalStorage(name, pos, predvolba, tel, email, skype, type, company);
 
     var source =
         '<div style="font-family: Arial;font-size:10pt;color: #424242;">' +
@@ -42,16 +51,14 @@ function refreshSignature() {
         (tel ? (predvolba + ' ' + addSpacesAfterEachThirdCharacter(tel)) : '') +
         (skype ? (', <b>Skype</b>: ' + skype + '') : '') +
       '<br />' +
-      '   <div style="margin-top: 10px;color:#424242;"><a style="color: #424242 !important;font-weight: 800;" href="https://www.morosystems.cz"><span style="color: #424242;">www.morosystems.cz</span></a></div>' +
+      '   <div style="margin-top: 10px;color:#424242;">' + getWebsite(isOrchestra) + '</div>' +
         '<br />' +
-        getFacebookLink() +
-        '<span style="margin-left: 5px"></span>' +
+        getFacebookLink(isOrchestra) +
+        (isOrchestra ? "" : '<span style="margin-left: 5px"></span>')  +
         getLinkedInLink() +
         '<br />' +
         '<br />' +
-      ' <a style="text-decoration:none;" href="https://www.morosystems.cz/">' +
-        getMoroSystemsLogo() +
-         '</a>' +
+        getLogo(isOrchestra) +
         '</div>';
 
     $("#signature").html(source);
@@ -59,7 +66,7 @@ function refreshSignature() {
 }
 
 
-function saveToLocalStorage(name, pos, predvolba, tel, email, skype, type) {
+function saveToLocalStorage(name, pos, predvolba, tel, email, skype, type, company) {
     // console.log("saveToLocalStorage", supports_html5_storage() ? true : false, name, pos, predvolba, tel, email, skype, lokace, type);
     if (supports_html5_storage()) {
         localStorage.setItem("tempData", JSON.stringify({
@@ -69,7 +76,8 @@ function saveToLocalStorage(name, pos, predvolba, tel, email, skype, type) {
             tel: tel,
             email: email,
             skype: skype,
-            type: type
+            type: type,
+            company: company
         }));
     }
 }
@@ -86,7 +94,7 @@ function loadFromLocalStorage(){
             $("#skype").val(data.skype);
             $("#predvolba .val").html(data.predvolba);
 
-            if(data.type){
+            if (data.type) {
                 $(".signType").removeClass("active");
                 if(data.type === "Gmail"){
                     $(".signType:nth-child(1)").addClass("active");
@@ -97,7 +105,17 @@ function loadFromLocalStorage(){
                 }
             }
 
-//                var lokace = $(".locationType.active").contents()[2].textContent.trim();
+            if (data.company) {
+                $(".company").removeClass("active");
+                if(data.company === "Morosystems"){
+                    $(".company:nth-child(1)").addClass("active");
+                }else if(data.company === "Orchestra"){
+                    $(".company:nth-child(2)").addClass("active");
+                }else{
+                    $(".company:nth-child(2)").addClass("active");
+                }
+            }
+
         }
 //        console.log("loadFromLocalStorage", data);
     }
@@ -120,6 +138,10 @@ function init() {
     });
 
     $(".signType").on("click", function () {
+        setTimeout(refreshSignature, 0);
+    });
+
+    $(".company").on("click", function () {
         setTimeout(refreshSignature, 0);
     });
 
