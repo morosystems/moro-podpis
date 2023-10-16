@@ -4,7 +4,7 @@ function addSpacesAfterEachThirdCharacter(x) {
 
 function getLogo(isOrchestra = false) {
     return isOrchestra
-        ? '<a style="text-decoration:none;" href="https://www.morosystems.cz/"><img src="https://i.ibb.co/XDqf2ch/Orchestra-logo-grad-h-color.png" width="238" alt="Orchestra Morosystems" /></a>'
+        ? '<a style="text-decoration:none;" href="https://www.morosystems.cz/"><img src="https://www.morosystems.cz/email/morosystems-orchestra-signature.png" width="238" alt="Orchestra Morosystems" /></a>'
         : '<a style="text-decoration:none;" href="https://orchestra.morosystems.cz"><img src="https://www.morosystems.cz/email/morosystems-logo-email-signature-1.png" width="238" alt="Morosystems" /></a>';
 }
 
@@ -21,9 +21,11 @@ function getFacebookLink(isOrchestra = false) {
 }
 
 function getLinkedInLink(isOrchestra = false) {
-    return (isOrchestra ? '<a href="https://www.linkedin.com/company/morosystems">' : '<a href="https://www.linkedin.com/company/morosystems-orchestra/">') +
-      '<img src="https://www.morosystems.cz/email/linkedin-logo-dark.png" alt="LinkedIn" width="24px" />' +
-      '</a>'
+    return (isOrchestra
+        ? '<a href="https://www.linkedin.com/company/morosystems">Sledujte nás na LinkedIn</a>'
+        : ('<a href="https://www.linkedin.com/company/morosystems-orchestra/">') +
+                '<img src="https://www.morosystems.cz/email/linkedin-logo-dark.png" alt="LinkedIn" width="24px" />' +
+           '</a>');
 }
 
 function refreshSignature() {
@@ -52,10 +54,10 @@ function refreshSignature() {
         (skype ? (', <b>Skype</b>: ' + skype + '') : '') +
       '<br />' +
       '   <div style="margin-top: 10px;color:#424242;">' + getWebsite(isOrchestra) + '</div>' +
-        '<br />' +
+        (isOrchestra ? "" :'<br />') +
         getFacebookLink(isOrchestra) +
         (isOrchestra ? "" : '<span style="margin-left: 5px"></span>')  +
-        getLinkedInLink() +
+        getLinkedInLink(isOrchestra) +
         '<br />' +
         '<br />' +
         getLogo(isOrchestra) +
