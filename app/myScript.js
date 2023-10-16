@@ -22,8 +22,8 @@ function getFacebookLink(isOrchestra = false) {
 
 function getLinkedInLink(isOrchestra = false) {
     return (isOrchestra
-        ? '<a href="https://www.linkedin.com/company/morosystems">Sledujte nás na LinkedIn</a>'
-        : ('<a href="https://www.linkedin.com/company/morosystems-orchestra/">') +
+        ? '<a href="https://www.linkedin.com/company/morosystems-orchestra/">Sledujte nás na LinkedIn</a>'
+        : ('<a href="https://www.linkedin.com/company/morosystems">') +
                 '<img src="https://www.morosystems.cz/email/linkedin-logo-dark.png" alt="LinkedIn" width="24px" />' +
            '</a>');
 }
