@@ -4,13 +4,13 @@ function addSpacesAfterEachThirdCharacter(x) {
 
 function getLogo(isOrchestra = false) {
     return isOrchestra
-        ? '<a style="text-decoration:none;" href="https://www.morosystems.cz/"><img src="https://www.morosystems.cz/email/morosystems-orchestra-signature.png" width="238" alt="Orchestra Morosystems" /></a>'
-        : '<a style="text-decoration:none;" href="https://orchestra.morosystems.cz"><img src="https://www.morosystems.cz/email/morosystems-logo-email-signature-1.png" width="238" alt="Morosystems" /></a>';
+        ? '<a style="text-decoration:none;" href="https://protymy.morosystems.cz/"><img src="https://www.morosystems.cz/email/morosystems-orchestra-signature.png" width="238" alt="Orchestra Morosystems" /></a>'
+        : '<a style="text-decoration:none;" href="https://www.morosystems.cz"><img src="https://www.morosystems.cz/email/morosystems-logo-email-signature-1.png" width="238" alt="Morosystems" /></a>';
 }
 
 function getWebsite(isOrchestra = false) {
     return isOrchestra
-        ? '<a style="color: #424242 !important;font-weight: 800;" href="https://orchestra.morosystems.cz"><span style="color: #424242;">orchestra.morosystems.cz</span></a>'
+        ? ''
         : '<a style="color: #424242 !important;font-weight: 800;" href="https://www.morosystems.cz"><span style="color: #424242;">www.morosystems.cz</span></a>';
 }
 
