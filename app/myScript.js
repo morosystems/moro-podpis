@@ -4,8 +4,8 @@ function addSpacesAfterEachThirdCharacter(x) {
 
 function getLogo(isOrchestra = false) {
     return isOrchestra
-        ? '<a style="text-decoration:none;" href="https://protymy.morosystems.cz/"><img src="https://www.morosystems.cz/email/morosystems-orchestra-signature.png" width="238" alt="Orchestra Morosystems" /></a>'
-        : '<a style="text-decoration:none;" href="https://www.morosystems.cz"><img src="https://www.morosystems.cz/email/morosystems-logo-email-signature-1.png" width="238" alt="Morosystems" /></a>';
+        ? '<a style="text-decoration:none;" href="https://protymy.morosystems.cz/"><img src="https://www.morosystems.cz/email/morosystems-orchestra-signature.png" width="238" alt="Orchestra MoroSystems" /></a>'
+        : '<a style="text-decoration:none;" href="https://www.morosystems.cz"><img src="https://www.morosystems.cz/email/morosystems-logo-email-signature-2026.png" width="200" alt="MoroSystems" /></a>';
 }
 
 function getWebsite(isOrchestra = false) {
