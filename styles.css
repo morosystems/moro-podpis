@@ -5,6 +5,7 @@
 .signature-container {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     gap: 10px;
     margin-top: 20px;
 }
@@ -19,6 +20,22 @@
 }
 
 .signature.dark {
-    background-color: #000;
+    background-color: #252746;
     user-select: none;
+}
+
+.signature-container-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.copied {
+    background-color: #32a046 !important;
+    border-color: #32a046 !important;
+}
+
+.error {
+    background-color: #d9534f !important;
+    border-color: #d9534f !important;
 }

@@ -9,6 +9,7 @@
 
     <title>MoroPodpis</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.png">
 </head>
 <body>
     <script src="preloader/loader.js"></script>
@@ -61,7 +62,10 @@
                 <textarea id="source" style="width: 100%; height: 150px;"></textarea>
 
                 <div class="signature-container">
-                    <div id="signature" class="signature "></div>
+                    <div class="signature-container-item">
+                        <div id="signature" class="signature "></div>
+                        <button class="btn btn-primary" id="copy-signature">Kopírovat</button>
+                    </div>
                     <div id="signature-dark" class="signature dark"></div>
                 </div>
             </div>

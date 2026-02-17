@@ -5,7 +5,7 @@ function addSpacesAfterEachThirdCharacter(x) {
 function getLogo(isOrchestra = false) {
     return isOrchestra
         ? '<a style="text-decoration:none;" href="https://protymy.morosystems.cz/"><img src="https://www.morosystems.cz/email/morosystems-orchestra-signature.png" width="238" alt="Orchestra MoroSystems" /></a>'
-        : '<a style="text-decoration:none;" href="https://www.morosystems.cz"><img src="https://www.morosystems.cz/email/morosystems-logo-email-signature-2026.png" width="200" alt="MoroSystems" /></a>';
+        : '<a style="text-decoration:none;" href="https://www.morosystems.cz"><img src="https://www.morosystems.cz/email/morosystems-logo-email-signature-2026-2.png" width="200" alt="MoroSystems" /></a>';
 }
 
 function getWebsite(isOrchestra = false) {
@@ -135,6 +135,43 @@ function supports_html5_storage() {
     }
 }
 
+function updateSignatureCopyElement(text, className, timeout = 3000) {
+    const signatureCopyElement = document.getElementById('copy-signature');
+
+    if (!signatureCopyElement) {
+        return;
+    }
+
+    signatureCopyElement.classList.add(className);
+    signatureCopyElement.innerHTML = text;
+    setTimeout(() => {
+        signatureCopyElement.classList.remove(className);
+        signatureCopyElement.innerHTML = "Kopírovat";
+    }, timeout);
+}
+
+async function copySignature() {
+
+    try {
+        const signatureElement = document.getElementById('signature');
+        const htmlContent = signatureElement.innerHTML;
+        const textContent = signatureElement.innerText || signatureElement.textContent;
+        
+        // Create a ClipboardItem with both HTML and plain text formats
+        const clipboardItem = new ClipboardItem({
+            'text/html': new Blob([htmlContent], { type: 'text/html' }),
+            'text/plain': new Blob([textContent], { type: 'text/plain' })
+        });
+        
+        await navigator.clipboard.write([clipboardItem]);
+
+        updateSignatureCopyElement("✓ Zkopírováno", "copied");
+    } catch (err) {
+        console.error('Failed to copy signature:', err);
+        
+        updateSignatureCopyElement("✗ Chyba při kopírování", "error");
+    }
+}
 
 //$(document).ready(function () {
 function init() {
@@ -162,6 +199,10 @@ function init() {
     loadFromLocalStorage();
 
     setTimeout(refreshSignature, 0);
+
+    $("#copy-signature").on("click", function () {
+        copySignature();
+    });
 
     $("#version").html(document.lastModified);
     $("#mainDiv").show();
