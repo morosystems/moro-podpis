@@ -43,7 +43,6 @@ function refreshSignature() {
 
     var source =
         '<div style="font-family: Arial;font-size:10pt;color: #424242;">' +
-      '   <br />' +
         '   <b style="font-weight: 600">' + name + '</b><br /> ' + pos + '' +
         '   <br />' +
         '   <br />' +
@@ -63,7 +62,11 @@ function refreshSignature() {
         getLogo(isOrchestra) +
         '</div>';
 
+
+    const darkPreview = source.replace(/#424242/g, "#fff");
+
     $("#signature").html(source);
+    $("#signature-dark").html(darkPreview);
     $("#source").val(source);
 }
 
@@ -109,7 +112,7 @@ function loadFromLocalStorage(){
 
             if (data.company) {
                 $(".company").removeClass("active");
-                if(data.company === "Morosystems"){
+                if(data.company === "MoroSystems"){
                     $(".company:nth-child(1)").addClass("active");
                 }else if(data.company === "Orchestra"){
                     $(".company:nth-child(2)").addClass("active");
